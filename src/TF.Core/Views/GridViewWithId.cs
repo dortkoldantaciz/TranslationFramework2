@@ -55,7 +55,7 @@
             {
                 DataPropertyName = "Translation",
                 Name = "colTranslation",
-                HeaderText = "Traducción",
+                HeaderText = "Translation",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 ReadOnly = true,
                 SortMode = DataGridViewColumnSortMode.NotSortable,
@@ -70,7 +70,7 @@
 
         protected override void btnExport_Click(object sender, EventArgs e)
         {
-            ExportFileDialog.Filter = "Archivos Excel|*.xlsx";
+            ExportFileDialog.Filter = "Excel Files|*.xlsx";
             ExportFileDialog.FileName = string.Concat(Path.GetFileNameWithoutExtension(_file.Path), ".xlsx");
             var result = ExportFileDialog.ShowDialog(this);
 
@@ -81,11 +81,11 @@
 
             using (var excel = new ExcelPackage())
             {
-                var sheet = excel.Workbook.Worksheets.Add("Hoja 1");
+                var sheet = excel.Workbook.Worksheets.Add("Sheet 1");
 
                 var header = new List<string[]>
                 {
-                    new[] {"ID", "ORIGINAL", "TRADUCCIÓN"}
+                    new[] {"ID", "ORIGINAL", "TRANSLATION"}
                 };
 
                 sheet.Cells["A1:C1"].LoadFromArrays(header);
@@ -108,7 +108,7 @@
 
         protected override void Import(bool useOffset)
         {
-            ImportFileDialog.Filter = "Archivos Excel|*.xlsx";
+            ImportFileDialog.Filter = "Excel Files|*.xlsx";
             ImportFileDialog.FileName = string.Concat(Path.GetFileNameWithoutExtension(_file.Path), ".xlsx");
             var result = ImportFileDialog.ShowDialog(this);
 
@@ -180,7 +180,7 @@
             }
             catch (Exception e)
             {
-                MessageBox.Show($"No se ha podido abrir el fichero.\r\n{e.GetType()}: {e.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Could not open the file.\r\n{e.GetType()}: {e.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

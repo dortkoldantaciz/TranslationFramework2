@@ -67,6 +67,7 @@
             // 
             this.mniRestoreItem.Name = "mniRestoreItem";
             resources.ApplyResources(this.mniRestoreItem, "mniRestoreItem");
+            this.mniRestoreItem.Text = "Restore";
             this.mniRestoreItem.Click += new System.EventHandler(this.mniRestoreItem_Click);
             // 
             // ExplorerForm
@@ -75,6 +76,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CloseButton = false;
             this.CloseButtonVisible = false;
+            this.Text = "Project Explorer";
             this.Controls.Add(this.tvGameFiles);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight)));

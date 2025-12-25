@@ -30,7 +30,7 @@ namespace TF.Core.Fonts
             catch (Exception)
             {
                 MessageBox.Show(
-                    "No se ha podido encontrar la fuente \"Noto Sans CJK JP Regular\". Puede que los textos no se muestren correctamente.");
+                    "Could not find the font \"Noto Sans CJK JP Regular\". Text may not display correctly.");
             }
         }
 

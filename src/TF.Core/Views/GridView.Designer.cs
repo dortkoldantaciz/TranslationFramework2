@@ -189,14 +189,14 @@ namespace TF.Core.Views
             // 
             this.restaurarTextoOriginalToolStripMenuItem.Name = "restaurarTextoOriginalToolStripMenuItem";
             this.restaurarTextoOriginalToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.restaurarTextoOriginalToolStripMenuItem.Text = "Restaurar texto original";
+            this.restaurarTextoOriginalToolStripMenuItem.Text = "Restore original text";
             this.restaurarTextoOriginalToolStripMenuItem.Click += new System.EventHandler(this.RestaurarTextoOriginalToolStripMenuItem_Click);
             // 
             // deshacerCambiosToolStripMenuItem
             // 
             this.deshacerCambiosToolStripMenuItem.Name = "deshacerCambiosToolStripMenuItem";
             this.deshacerCambiosToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.deshacerCambiosToolStripMenuItem.Text = "Deshacer cambios";
+            this.deshacerCambiosToolStripMenuItem.Text = "Undo changes";
             this.deshacerCambiosToolStripMenuItem.Click += new System.EventHandler(this.DeshacerCambiosToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
@@ -209,7 +209,7 @@ namespace TF.Core.Views
             this.preTraducirToolStripMenuItem.Enabled = false;
             this.preTraducirToolStripMenuItem.Name = "preTraducirToolStripMenuItem";
             this.preTraducirToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.preTraducirToolStripMenuItem.Text = "Pre-Traducir";
+            this.preTraducirToolStripMenuItem.Text = "Pre-Translate";
             this.preTraducirToolStripMenuItem.Click += new System.EventHandler(this.PreTraducirToolStripMenuItem_Click);
             // 
             // btnImportPo
@@ -218,8 +218,8 @@ namespace TF.Core.Views
             this.btnImportPo.Name = "btnImportPo";
             this.btnImportPo.Size = new System.Drawing.Size(97, 23);
             this.btnImportPo.TabIndex = 8;
-            this.btnImportPo.Text = "Importar de Po";
-            this.toolTip1.SetToolTip(this.btnImportPo, "Importa la traducción de un fichero .po");
+            this.btnImportPo.Text = "Import from Po";
+            this.toolTip1.SetToolTip(this.btnImportPo, "Imports translation from a .po file");
             this.btnImportPo.UseVisualStyleBackColor = true;
             this.btnImportPo.Click += new System.EventHandler(this.btnImportPo_Click);
             // 
@@ -229,8 +229,8 @@ namespace TF.Core.Views
             this.btnExportPo.Name = "btnExportPo";
             this.btnExportPo.Size = new System.Drawing.Size(97, 23);
             this.btnExportPo.TabIndex = 7;
-            this.btnExportPo.Text = "Exportar a Po";
-            this.toolTip1.SetToolTip(this.btnExportPo, "Exporta las líneas a un fichero .po");
+            this.btnExportPo.Text = "Export to Po";
+            this.toolTip1.SetToolTip(this.btnExportPo, "Exports lines to a .po file");
             this.btnExportPo.UseVisualStyleBackColor = true;
             this.btnExportPo.Click += new System.EventHandler(this.btnExportPo_Click);
             // 
@@ -242,7 +242,7 @@ namespace TF.Core.Views
             this.lblChangedLinesCount.Name = "lblChangedLinesCount";
             this.lblChangedLinesCount.Size = new System.Drawing.Size(124, 13);
             this.lblChangedLinesCount.TabIndex = 6;
-            this.lblChangedLinesCount.Text = "Líneas modificadas: X/Y";
+            this.lblChangedLinesCount.Text = "Modified Lines: X/Y";
             // 
             // btnSimpleImport
             // 
@@ -250,9 +250,8 @@ namespace TF.Core.Views
             this.btnSimpleImport.Name = "btnSimpleImport";
             this.btnSimpleImport.Size = new System.Drawing.Size(97, 23);
             this.btnSimpleImport.TabIndex = 5;
-            this.btnSimpleImport.Text = "Importar (Simple)";
-            this.toolTip1.SetToolTip(this.btnSimpleImport, "Importa la traducción de un fichero .xlsx\n\nHace coincidir las líneas por el texto" +
-        " original.");
+            this.btnSimpleImport.Text = "Import (Simple)";
+            this.toolTip1.SetToolTip(this.btnSimpleImport, "Imports translation from an .xlsx file\n\nMatches lines by original text.");
             this.btnSimpleImport.UseVisualStyleBackColor = true;
             this.btnSimpleImport.Click += new System.EventHandler(this.btnSimpleImport_Click);
             // 
@@ -262,9 +261,8 @@ namespace TF.Core.Views
             this.btnOffsetImport.Name = "btnOffsetImport";
             this.btnOffsetImport.Size = new System.Drawing.Size(97, 23);
             this.btnOffsetImport.TabIndex = 4;
-            this.btnOffsetImport.Text = "Importar (Offset)";
-            this.toolTip1.SetToolTip(this.btnOffsetImport, "Importa la traducción de un fichero .xlsx\n\nHace coincidir las líneas por el campo" +
-        " Offset");
+            this.btnOffsetImport.Text = "Import (Offset)";
+            this.toolTip1.SetToolTip(this.btnOffsetImport, "Imports translation from an .xlsx file\n\nMatches lines by Offset field");
             this.btnOffsetImport.UseVisualStyleBackColor = true;
             this.btnOffsetImport.Click += new System.EventHandler(this.btnOffsetImport_Click);
             // 
@@ -274,18 +272,18 @@ namespace TF.Core.Views
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(97, 23);
             this.btnExport.TabIndex = 3;
-            this.btnExport.Text = "Exportar a Excel";
-            this.toolTip1.SetToolTip(this.btnExport, "Exporta las líneas a un fichero .xlsx");
+            this.btnExport.Text = "Export to Excel";
+            this.toolTip1.SetToolTip(this.btnExport, "Exports lines to an .xlsx file");
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // ExportFileDialog
             // 
-            this.ExportFileDialog.Filter = "Archivos Excel|*.xlsx";
+            this.ExportFileDialog.Filter = "Excel Files|*.xlsx";
             // 
             // ImportFileDialog
             // 
-            this.ImportFileDialog.Filter = "Archivos Excel|*.xlsx";
+            this.ImportFileDialog.Filter = "Excel Files|*.xlsx";
             // 
             // GridView
             // 
@@ -296,7 +294,7 @@ namespace TF.Core.Views
             this.Controls.Add(this.dockPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GridView";
-            this.Text = "Subtítulos";
+            this.Text = "Subtitles";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();

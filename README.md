@@ -1,93 +1,54 @@
 # TranslationFramework2
 
-**Translation Framework 2** is an application developed to make it easier to translate different games.
+**Translation Framework 2** is a powerful and versatile application designed to streamline the translation process for various video games. It automates file management, extraction, and rebuilding, allowing translators to focus purely on the text and assets.
 
-## How It Works
+## 🚀 Key Features
 
-When creating a new translation, the application asks the user to select the game they want to translate and the folder where it is installed.  
-After that, the application automatically finds and extracts (if necessary) the files that contain text, so the user can focus only on translating.
+### 🌍 Fully English UI
+The entire user interface has been completely translated into English, ensuring a smooth and accessible experience for international users.
 
-When the user finishes the translation, the application rebuilds the files.
+### 📊 Excel Integration
+- **Export to Excel:** Export game text files directly to `.xlsx` format. This allows for easy editing in Microsoft Excel, Google Sheets, or other spreadsheet software.
+- **Import from Excel:** Seamlessly import translated content back from Excel files.
+- **Bulk Processing:** Supports bulk export and import of all project files at once.
 
----
+### 📦 Bulk Operations
+- **"All" Mode:** The new **Bulk > All** menu allows you to export or import the entire project content (Texts and Images) in a single operation.
+- **Preserved Structure:** All bulk operations maintain the original directory structure, making file management hassle-free.
 
-## Supported Games
+### 🖼️ Texture & Font Support
+- **Texture Replacement:** View and replace game textures directly within the tool.
+- **Font Management:** Tools to view, export, and replace game fonts (supports specific formats like `.ufn`, `.ttf`, etc.).
 
-### Yakuza 0
-- Text translation
-- Texture replacement
-- Font replacement
-- Patch to use 1-byte encoding instead of Shift-JIS
-
-### Yakuza 0 Director’s Cut (BETA)
-- Text translation *(cutscenes cannot be opened yet)*
-- Texture replacement
-- Font replacement *(only from `.dds` files)*
-- Patch to use 1-byte encoding instead of Shift-JIS
-
-### Yakuza Kiwami
-- Text translation
-- Texture replacement
-- Font replacement
-- Patch to use 1-byte encoding instead of Shift-JIS
-
-### Ryū ga Gotoku Ishin! (PS3)
-- Text translation *(partial support)*
-
-### Shining Resonance Refrain
-- Text translation
-- Texture replacement
-- Font replacement
-
-### The MISSING: J.J. Macfield and the Island of Memories
-- Text translation
-- Texture replacement
-- Font replacement
-
-### Phoenix Wright: Ace Attorney Trilogy
-- Text translation
-- Script editing *(not tested)*
-- Texture replacement *(`.sprite` files are not modified, so images are cut)*
-
-> **NOTE:** Does not work correctly. Do not use until further notice.
-
-### The Legend of Heroes: Trails in the Sky
-- Text translation
-- Texture replacement
-- Font replacement
-
-### UnderRail
-- Text translation
-
-> **NOTE:** To make it work, you must copy the following files into the `plugins` folder:  
-> `underrail.exe`, `GalaxyCSharp.dll`, `sfmlnet-audio-2.dll`, `sfmlnet-window-2.dll`,  
-> `Microsoft.Xna.Framework.dll`, `Microsoft.Xna.Framework.Graphics.dll`
-
-### AI - The Somnium Files
-- Text translation
-- Texture replacement
-
-### Disco Elysium
-- Text translation
-- Texture replacement
-
-### Hardcore Mecha
-- Text translation
-- Texture replacement
-
-### Love Esquire
-- Text translation
-
-> **NOTE:** To make it work, you must modify the `vntext.sq` and `Assembly-CSharp.dll` files beforehand.
-
-### NightCry
-- Text translation
-- Texture replacement
-- Font replacement
+### 🔍 Advanced Search
+- **Search in Files:** Quickly find specific text strings across the entire project.
+- **Global Search:** Locate files and resources efficiently.
 
 ---
 
-## Credits
+## 🎮 Supported Games
+
+### Yakuza Series
+- **Yakuza 0:** Text, Texture, Font, Encoding Patch (1-byte).
+- **Yakuza 0 Director’s Cut (BETA):** Text, Texture, Font (`.dds`), Encoding Patch.
+- **Yakuza Kiwami:** Text, Texture, Font, Encoding Patch.
+- **Ryū ga Gotoku Ishin! (PS3):** Text (Partial).
+
+### Other Titles
+- **Shining Resonance Refrain:** Text, Texture, Font.
+- **The MISSING: J.J. Macfield and the Island of Memories:** Text, Texture, Font.
+- **The Legend of Heroes: Trails in the Sky:** Text, Texture, Font.
+- **UnderRail:** Text (Requires plugins: `underrail.exe`, `GalaxyCSharp.dll`, `sfmlnet-audio-2.dll`, `sfmlnet-window-2.dll`, `Microsoft.Xna.Framework.dll`, `Microsoft.Xna.Framework.Graphics.dll`).
+- **AI - The Somnium Files:** Text, Texture.
+- **Disco Elysium:** Text, Texture.
+- **Hardcore Mecha:** Text, Texture.
+- **Love Esquire:** Text (Requires `vntext.sq` and `Assembly-CSharp.dll` modification).
+- **NightCry:** Text, Texture, Font.
+- **Phoenix Wright: Ace Attorney Trilogy:** Text, Script (Untested), Texture (Issues with `.sprite` files). *Note: unstable.*
+
+---
+
+## 🛠️ Credits
 
 - **Malaquito** and **Hazardous** from ClanDLAN for daring to make translations using my tools xD
 - **Rick Gibbed** for his tool to extract Yakuza files

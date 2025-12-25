@@ -10,7 +10,7 @@ namespace TF.Core.Files
         private FontView _view;
         private byte[] _currentFont;
         
-        protected virtual string Filter => "Fuentes (*.ttf)|*.ttf";
+        protected virtual string Filter => "Fonts (*.ttf)|*.ttf";
 
         public TrueTypeFontFile(string gameName, string path, string changesFolder) : base(gameName, path, changesFolder, null)
         {

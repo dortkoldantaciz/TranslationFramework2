@@ -45,6 +45,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CloseButton = false;
             this.CloseButtonVisible = false;
+            this.Text = "Search Results";
             this.Controls.Add(this.lbSearchResult);
             this.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom;
             this.Name = "SearchResultsForm";

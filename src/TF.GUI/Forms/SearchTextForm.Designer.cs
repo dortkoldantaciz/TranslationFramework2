@@ -93,6 +93,11 @@ namespace TF.GUI.Forms
             this.Name = "SearchTextForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.label1.Text = "Search for:";
+            this.btnCancel.Text = "Cancel";
+            this.btnOK.Text = "OK";
+            this.Text = "Search";
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

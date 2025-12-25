@@ -107,7 +107,7 @@ namespace TF.Core.Views
             {
                 DataPropertyName = "Translation",
                 Name = "colTranslation",
-                HeaderText = "Traducción",
+                HeaderText = "Translation",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 ReadOnly = true,
                 SortMode = DataGridViewColumnSortMode.NotSortable,
@@ -222,7 +222,7 @@ namespace TF.Core.Views
 
         protected virtual void btnExport_Click(object sender, EventArgs e)
         {
-            ExportFileDialog.Filter = "Archivos Excel|*.xlsx";
+            ExportFileDialog.Filter = "Excel Files|*.xlsx";
             ExportFileDialog.FileName = string.Concat(Path.GetFileNameWithoutExtension(_file.Path), ".xlsx");
             var result = ExportFileDialog.ShowDialog(this);
 
@@ -233,11 +233,11 @@ namespace TF.Core.Views
 
             using (var excel = new ExcelPackage())
             {
-                var sheet = excel.Workbook.Worksheets.Add("Hoja 1");
+                var sheet = excel.Workbook.Worksheets.Add("Sheet 1");
 
                 var header = new List<string[]>
                 {
-                    new[] {"OFFSET", "ORIGINAL", "TRADUCCIÓN"}
+                    new[] {"OFFSET", "ORIGINAL", "TRANSLATION"}
                 };
 
                 sheet.Cells["A1:C1"].LoadFromArrays(header);
@@ -269,7 +269,7 @@ namespace TF.Core.Views
 
         protected virtual void Import(bool useOffset)
         {
-            ImportFileDialog.Filter = "Archivos Excel|*.xlsx";
+            ImportFileDialog.Filter = "Excel Files|*.xlsx";
             ImportFileDialog.FileName = string.Concat(Path.GetFileNameWithoutExtension(_file.Path), ".xlsx");
             var result = ImportFileDialog.ShowDialog(this);
 
@@ -333,7 +333,7 @@ namespace TF.Core.Views
             }
             catch (Exception e)
             {
-                MessageBox.Show($"No se ha podido abrir el fichero.\r\n{e.GetType()}: {e.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Could not open the file.\r\n{e.GetType()}: {e.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -341,7 +341,7 @@ namespace TF.Core.Views
         {
             var changedLines = _subtitles.Count(x => x.Text != x.Translation);
             var totalLines = _subtitles.Count;
-            lblChangedLinesCount.Text = $"Líneas modificadas: {changedLines}/{totalLines}";
+            lblChangedLinesCount.Text = $"Modified lines: {changedLines}/{totalLines}";
         }
 
         private void SubtitleGridView_SelectionChanged(object sender, EventArgs e)
@@ -424,7 +424,7 @@ namespace TF.Core.Views
 
         private void btnExportPo_Click(object sender, EventArgs e)
         {
-            ExportFileDialog.Filter = "Archivos Po|*.po";
+            ExportFileDialog.Filter = "Po Files|*.po";
             ExportFileDialog.FileName = string.Concat(Path.GetFileNameWithoutExtension(_file.Path), ".po");
             var result = ExportFileDialog.ShowDialog(this);
 
@@ -438,7 +438,7 @@ namespace TF.Core.Views
 
         private void btnImportPo_Click(object sender, EventArgs e)
         {
-            ImportFileDialog.Filter = "Archivos Po|*.po";
+            ImportFileDialog.Filter = "Po Files|*.po";
             ImportFileDialog.FileName = string.Concat(Path.GetFileNameWithoutExtension(_file.Path), ".po");
             var result = ImportFileDialog.ShowDialog(this);
 

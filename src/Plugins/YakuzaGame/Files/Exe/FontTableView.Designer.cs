@@ -128,7 +128,7 @@ namespace YakuzaGame.Files.Exe
             this.txtTest.Name = "txtTest";
             this.txtTest.Size = new System.Drawing.Size(763, 20);
             this.txtTest.TabIndex = 9;
-            this.txtTest.Text = "Texto de prueba";
+            this.txtTest.Text = "Test text";
             this.txtTest.TextChanged += new System.EventHandler(this.txtTest_TextChanged);
             // 
             // imgBoxNewChar
@@ -155,7 +155,7 @@ namespace YakuzaGame.Files.Exe
             this.btnLoadNewFont.Name = "btnLoadNewFont";
             this.btnLoadNewFont.Size = new System.Drawing.Size(129, 23);
             this.btnLoadNewFont.TabIndex = 7;
-            this.btnLoadNewFont.Text = "Cargar Fuente Nueva";
+            this.btnLoadNewFont.Text = "Load New Font";
             this.btnLoadNewFont.UseVisualStyleBackColor = true;
             this.btnLoadNewFont.Click += new System.EventHandler(this.btnLoadFont_Click);
             // 
@@ -194,14 +194,14 @@ namespace YakuzaGame.Files.Exe
             this.btnLoadOriginalFont.Name = "btnLoadOriginalFont";
             this.btnLoadOriginalFont.Size = new System.Drawing.Size(129, 23);
             this.btnLoadOriginalFont.TabIndex = 0;
-            this.btnLoadOriginalFont.Text = "Cargar Fuente Original";
+            this.btnLoadOriginalFont.Text = "Load Original Font";
             this.btnLoadOriginalFont.UseVisualStyleBackColor = true;
             this.btnLoadOriginalFont.Click += new System.EventHandler(this.btnLoadFont_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "hd2_hankaku.dds";
-            this.openFileDialog1.Filter = "Fuente Yakuza (*.dds)|*.dds|Todos los archivos (*.*)|*.*";
+            this.openFileDialog1.Filter = "Yakuza Font (*.dds)|*.dds|All files (*.*)|*.*";
             // 
             // FontTableView
             // 
@@ -212,7 +212,7 @@ namespace YakuzaGame.Files.Exe
             this.Controls.Add(this.dockPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FontTableView";
-            this.Text = "Fuente";
+            this.Text = "Font";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();

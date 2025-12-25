@@ -92,12 +92,12 @@ namespace TF.Core
 
                 string gameId = input.ReadString();
                 IGame game = pluginManager.GetGame(gameId);
-                result.Game = game ?? throw new Exception("No existe un plugin para cargar este fichero.");
+                result.Game = game ?? throw new Exception("No plugin exists to load this file.");
 
                 int pluginVersion = input.ReadInt32();
                 if (pluginVersion > game.Version)
                 {
-                    throw new Exception("No coincide la versión del plugin instalado con la versión del que creó esta traducción.");
+                    throw new Exception("Installed plugin version does not match the version that created this translation.");
                 }
 
                 if (pluginVersion < game.Version)
@@ -108,7 +108,7 @@ namespace TF.Core
                 string installPath = input.ReadString();
                 if (!Directory.Exists(installPath))
                 {
-                    throw new Exception($"No se encuentra la carpeta de instalación: {installPath}");
+                    throw new Exception($"Installation folder not found: {installPath}");
                 }
 
                 result.InstallationPath = installPath;
@@ -209,11 +209,11 @@ namespace TF.Core
             {
                 if (worker.CancellationPending)
                 {
-                    worker.ReportProgress(0, "CANCELADO");
+                    worker.ReportProgress(0, "CANCELLED");
                     throw new UserCancelException();
                 }
 
-                worker.ReportProgress(0, $"Procesando {container.Path}...");
+                worker.ReportProgress(0, $"Processing {container.Path}...");
 
                 if (container.Type == ContainerType.Folder)
                 {
@@ -246,7 +246,7 @@ namespace TF.Core
                         File.Delete(outputFile);
                     }
 
-                    worker.ReportProgress(0, "Preparando para empaquetar...");
+                    worker.ReportProgress(0, "Preparing to pack...");
                     // 1. Copiar todos los ficheros del contenedor a una carpeta temporal
                     string source = Path.Combine(ContainersFolder, container.Id);
                     string dest = Path.Combine(TempFolder, container.Id);
@@ -255,7 +255,7 @@ namespace TF.Core
                     PathHelper.CloneDirectory(source, dest);
 
                     // 2. Crear los ficheros traducidos en esa carpeta temporal
-                    worker.ReportProgress(0, "Generando ficheros traducidos...");
+                    worker.ReportProgress(0, "Generating translated files...");
                     foreach (TranslationFile translationFile in container.Files)
                     {
                         if (translationFile.HasChanges || options.ForceRebuild)
@@ -273,7 +273,7 @@ namespace TF.Core
                     }
 
                     // 3. Empaquetar
-                    worker.ReportProgress(0, "Empaquetando fichero...");
+                    worker.ReportProgress(0, "Packing file...");
                     Game.RepackFile(dest, outputFile, options.UseCompression);
 
                     // 4. Eliminar la carpeta temporal
@@ -301,11 +301,11 @@ namespace TF.Core
             {
                 if (worker.CancellationPending)
                 {
-                    worker.ReportProgress(0, "CANCELADO");
+                    worker.ReportProgress(0, "CANCELLED");
                     throw new UserCancelException();
                 }
 
-                worker.ReportProgress(0, $"Procesando {container.Path}...");
+                worker.ReportProgress(0, $"Processing {container.Path}...");
 
                 //foreach (var file in container.Files)
                 Parallel.ForEach(container.Files, file =>
@@ -351,7 +351,7 @@ namespace TF.Core
 
                 string containerPath = Path.GetFullPath(Path.Combine(project.InstallationPath, container.Path));
 
-                worker.ReportProgress(0, $"Procesando {container.Path}...");
+                worker.ReportProgress(0, $"Processing {container.Path}...");
                 if (container.Type == ContainerType.CompressedFile)
                 {
                     if (File.Exists(containerPath))
@@ -364,7 +364,7 @@ namespace TF.Core
 
                         foreach (GameFileSearch fileSearch in container.FileSearches)
                         {
-                            worker.ReportProgress(0, $"Buscando {fileSearch.RelativePath}\\{fileSearch.SearchPattern}...");
+                            worker.ReportProgress(0, $"Searching {fileSearch.RelativePath}\\{fileSearch.SearchPattern}...");
                             string[] foundFiles = fileSearch.GetFiles(extractionContainerPath);
 #if DEBUG
                             foreach (string f in foundFiles)
@@ -431,11 +431,11 @@ namespace TF.Core
 
                         project.Game.PostprocessContainer(translationContainer, containerPath, extractionContainerPath);
 
-                        worker.ReportProgress(0, $"{addedFiles} ficheros encontrados y añadidos");
+                        worker.ReportProgress(0, $"{addedFiles} files found and added");
                     }
                     else
                     {
-                        worker.ReportProgress(0, $"ERROR: No existe el fichero comprimido {containerPath}");
+                        worker.ReportProgress(0, $"ERROR: Compressed file {containerPath} does not exist");
                         continue;
                     }
                 }
@@ -444,7 +444,7 @@ namespace TF.Core
                     project.Game.PreprocessContainer(translationContainer, containerPath, extractionContainerPath);
                     foreach (GameFileSearch fileSearch in container.FileSearches)
                     {
-                        worker.ReportProgress(0, $"Buscando {fileSearch.RelativePath}\\{fileSearch.SearchPattern}...");
+                        worker.ReportProgress(0, $"Searching {fileSearch.RelativePath}\\{fileSearch.SearchPattern}...");
                         string[] foundFiles = fileSearch.GetFiles(containerPath);
 
 #if DEBUG
@@ -515,7 +515,7 @@ namespace TF.Core
 #endif
 
                         project.Game.PostprocessContainer(translationContainer, containerPath, extractionContainerPath);
-                        worker.ReportProgress(0, $"{addedFiles} ficheros encontrados y añadidos");
+                        worker.ReportProgress(0, $"{addedFiles} files found and added");
                     }
                 }
 
@@ -532,11 +532,11 @@ namespace TF.Core
             {
                 if (worker.CancellationPending)
                 {
-                    worker.ReportProgress(0, "CANCELADO");
+                    worker.ReportProgress(0, "CANCELLED");
                     throw new UserCancelException();
                 }
 
-                worker.ReportProgress(0, $"Procesando {container.Path}...");
+                worker.ReportProgress(0, $"Processing {container.Path}...");
 
                 foreach (TranslationFile file in container.Files)
                 {
@@ -554,11 +554,11 @@ namespace TF.Core
             {
                 if (worker.CancellationPending)
                 {
-                    worker.ReportProgress(0, "CANCELADO");
+                    worker.ReportProgress(0, "CANCELLED");
                     throw new UserCancelException();
                 }
 
-                worker.ReportProgress(0, $"Procesando {container.Path}...");
+                worker.ReportProgress(0, $"Processing {container.Path}...");
 
                 foreach (TranslationFile file in container.Files)
                 {
@@ -576,11 +576,11 @@ namespace TF.Core
             {
                 if (worker.CancellationPending)
                 {
-                    worker.ReportProgress(0, "CANCELADO");
+                    worker.ReportProgress(0, "CANCELLED");
                     throw new UserCancelException();
                 }
 
-                worker.ReportProgress(0, $"Procesando {container.Path}...");
+                worker.ReportProgress(0, $"Processing {container.Path}...");
 
                 foreach (TranslationFile file in container.Files)
                 {
@@ -626,11 +626,11 @@ namespace TF.Core
             {
                 if (worker.CancellationPending)
                 {
-                    worker.ReportProgress(0, "CANCELADO");
+                    worker.ReportProgress(0, "CANCELLED");
                     throw new UserCancelException();
                 }
 
-                worker.ReportProgress(0, $"Procesando {container.Path}...");
+                worker.ReportProgress(0, $"Processing {container.Path}...");
 
                 foreach (TranslationFile file in container.Files)
                 {
@@ -641,6 +641,133 @@ namespace TF.Core
                     if (File.Exists(inputPath))
                     {
                         file.ImportImage(inputPath);
+                    }
+                }
+            }
+        }
+
+        public void ExportExcel(string path, BackgroundWorker worker)
+        {
+            foreach (TranslationFileContainer container in FileContainers)
+            {
+                if (worker.CancellationPending)
+                {
+                    worker.ReportProgress(0, "CANCELLED");
+                    throw new UserCancelException();
+                }
+
+                worker.ReportProgress(0, $"Processing {container.Path}...");
+
+                foreach (TranslationFile file in container.Files)
+                {
+                    string filePath = Path.Combine(path, container.Path, file.RelativePath);
+                    string fileName = Path.GetFileNameWithoutExtension(filePath);
+                    string outputPath = string.Concat(@"\\?\", Path.GetFullPath(Path.Combine(Path.GetDirectoryName(filePath), string.Concat(fileName, ".xlsx"))));
+                    file.ExportExcel(outputPath);
+                }
+            }
+        }
+
+        public void ImportExcel(string path, BackgroundWorker worker)
+        {
+            foreach (TranslationFileContainer container in FileContainers)
+            {
+                if (worker.CancellationPending)
+                {
+                    worker.ReportProgress(0, "CANCELLED");
+                    throw new UserCancelException();
+                }
+
+                worker.ReportProgress(0, $"Processing {container.Path}...");
+
+                foreach (TranslationFile file in container.Files)
+                {
+                    string filePath = Path.Combine(path, container.Path, file.RelativePath);
+                    string fileName = Path.GetFileNameWithoutExtension(filePath);
+                    string inputPath = string.Concat(@"\\?\", Path.GetFullPath(Path.Combine(Path.GetDirectoryName(filePath), string.Concat(fileName, ".xlsx"))));
+
+                    if (!File.Exists(inputPath))
+                    {
+                         filePath = Path.Combine(path, file.RelativePath);
+                         inputPath = string.Concat(@"\\?\", Path.GetFullPath(Path.Combine(Path.GetDirectoryName(filePath), string.Concat(fileName, ".xlsx"))));
+                    }
+
+                    if (File.Exists(inputPath))
+                    {
+                        file.ImportExcel(inputPath);
+                    }
+                }
+            }
+        }
+
+        public void ExportAll(string path, BackgroundWorker worker)
+        {
+            foreach (TranslationFileContainer container in FileContainers)
+            {
+                if (worker.CancellationPending)
+                {
+                    worker.ReportProgress(0, "CANCELLED");
+                    throw new UserCancelException();
+                }
+
+                worker.ReportProgress(0, $"Processing {container.Path}...");
+
+                foreach (TranslationFile file in container.Files)
+                {
+                    // Export Excel (For Text Files)
+                    string filePath = Path.Combine(path, container.Path, file.RelativePath);
+                    string fileName = Path.GetFileNameWithoutExtension(filePath);
+                    string outputExcelPath = string.Concat(@"\\?\", Path.GetFullPath(Path.Combine(Path.GetDirectoryName(filePath), string.Concat(fileName, ".xlsx"))));
+                    file.ExportExcel(outputExcelPath);
+
+                    // Export Images
+                    string fileNameImage = file.GetExportFilename();
+                    string outputImagePath = string.Concat(@"\\?\", Path.GetFullPath(Path.Combine(Path.GetDirectoryName(filePath), fileNameImage)));
+                    file.ExportImage(outputImagePath);
+                }
+            }
+        }
+
+        public void ImportAll(string path, BackgroundWorker worker)
+        {
+            foreach (TranslationFileContainer container in FileContainers)
+            {
+                if (worker.CancellationPending)
+                {
+                    worker.ReportProgress(0, "CANCELLED");
+                    throw new UserCancelException();
+                }
+
+                worker.ReportProgress(0, $"Processing {container.Path}...");
+
+                foreach (TranslationFile file in container.Files)
+                {
+                    // Import Excel
+                    string filePath = Path.Combine(path, container.Path, file.RelativePath);
+                    string fileName = Path.GetFileNameWithoutExtension(filePath);
+                    string inputExcelPath = string.Concat(@"\\?\", Path.GetFullPath(Path.Combine(Path.GetDirectoryName(filePath), string.Concat(fileName, ".xlsx"))));
+
+                    if (!File.Exists(inputExcelPath))
+                    {
+                         // Try ignoring container structure if not found
+                         filePath = Path.Combine(path, file.RelativePath);
+                         inputExcelPath = string.Concat(@"\\?\", Path.GetFullPath(Path.Combine(Path.GetDirectoryName(filePath), string.Concat(fileName, ".xlsx"))));
+                    }
+
+                    if (File.Exists(inputExcelPath))
+                    {
+                        file.ImportExcel(inputExcelPath);
+                    }
+
+                    // Import Images
+                    // Reset filePath to container based path
+                    filePath = Path.Combine(path, container.Path, file.RelativePath);
+                    string fileNameImage = file.GetExportFilename();
+                    string inputImagePath = string.Concat(@"\\?\", Path.GetFullPath(Path.Combine(Path.GetDirectoryName(filePath), fileNameImage)));
+
+                    if (File.Exists(inputImagePath))
+                    {
+                        file.ImportImage(inputImagePath);
                     }
                 }
             }

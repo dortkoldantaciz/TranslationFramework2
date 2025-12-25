@@ -81,7 +81,7 @@ namespace TFGame.TheMissing.Files.Txt
             {
                 DataPropertyName = "Translation",
                 Name = "colTranslation",
-                HeaderText = "Traducción",
+                HeaderText = "Translation",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 SortMode = DataGridViewColumnSortMode.NotSortable,
             };
@@ -91,7 +91,7 @@ namespace TFGame.TheMissing.Files.Txt
             {
                 DataPropertyName = "Width",
                 Name = "colWidth",
-                HeaderText = "Ancho",
+                HeaderText = "Width",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 DecimalPlaces = 0,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleRight },
@@ -107,7 +107,7 @@ namespace TFGame.TheMissing.Files.Txt
             {
                 DataPropertyName = "Height",
                 Name = "colHeight",
-                HeaderText = "Alto",
+                HeaderText = "Height",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 DecimalPlaces = 0,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleRight },
@@ -272,11 +272,11 @@ namespace TFGame.TheMissing.Files.Txt
 
             using (var excel = new ExcelPackage())
             {
-                var sheet = excel.Workbook.Worksheets.Add("Hoja 1");
+                var sheet = excel.Workbook.Worksheets.Add("Sheet 1");
 
                 var header = new List<string[]>
                 {
-                    new[] {"OFFSET", "ORIGINAL", "TRADUCCIÓN", "ANCHO", "ALTO" }
+                    new[] {"OFFSET", "ORIGINAL", "TRANSLATION", "WIDTH", "HEIGHT" }
                 };
 
                 sheet.Cells["A1:E1"].LoadFromArrays(header);
@@ -364,7 +364,7 @@ namespace TFGame.TheMissing.Files.Txt
             }
             catch (Exception e)
             {
-                MessageBox.Show($"No se ha podido abrir el fichero.\r\n{e.GetType()}: {e.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Could not open the file.\r\n{e.GetType()}: {e.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -377,7 +377,7 @@ namespace TFGame.TheMissing.Files.Txt
         {
             var changedLines = _subtitles.Count(x => x.Text != x.Translation);
             var totalLines = _subtitles.Count;
-            lblChangedLinesCount.Text = $"Líneas modificadas: {changedLines}/{totalLines}";
+            lblChangedLinesCount.Text = $"Modified lines: {changedLines}/{totalLines}";
         }
 
         private void SubtitleGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)

@@ -11,7 +11,9 @@ using TF.Core.Views;
 using TF.IO;
 using WeifenLuo.WinFormsUI.Docking;
 using Yarhl.IO;
+using Yarhl.IO;
 using Yarhl.Media.Text;
+using OfficeOpenXml;
 
 namespace TF.Core.Files
 {
@@ -390,6 +392,76 @@ namespace TF.Core.Files
                     foreach (PoEntry entry in po.Entries)
                     {
                         UpdateSubtitleFromPoEntry(entry);
+                    }
+                }
+            }
+
+            if (save && NeedSaving)
+            {
+                SaveChanges();
+            }
+        }
+
+        public override void ExportExcel(string path)
+        {
+            var directory = System.IO.Path.GetDirectoryName(path);
+            Directory.CreateDirectory(directory);
+
+            var subtitles = GetSubtitles();
+
+            using (var package = new OfficeOpenXml.ExcelPackage(new FileInfo(path)))
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Strings");
+                
+                worksheet.Cells[1, 1].Value = "Offset (Context)";
+                worksheet.Cells[1, 2].Value = "Original";
+                worksheet.Cells[1, 3].Value = "Translated";
+
+                int row = 2;
+                foreach(var subtitle in subtitles)
+                {
+                    worksheet.Cells[row, 1].Value = GetContext(subtitle);
+                    worksheet.Cells[row, 2].Value = subtitle.Text;
+                    worksheet.Cells[row, 3].Value = subtitle.Translation;
+                    row++;
+                }
+
+                package.Save();
+            }
+        }
+
+        public override void ImportExcel(string inputFile, bool save = true, bool parallel = true)
+        {
+            LoadBeforeImport();
+            var dictionary = new ConcurrentDictionary<string, Subtitle>();
+            foreach (Subtitle subtitle in _subtitles)
+            {
+                dictionary[GetContext(subtitle)] = subtitle;
+            }
+
+            using (var package = new OfficeOpenXml.ExcelPackage(new FileInfo(inputFile)))
+            {
+                var worksheet = package.Workbook.Worksheets[1]; // Get first worksheet
+                int rowCount = worksheet.Dimension.Rows;
+
+                for (int row = 2; row <= rowCount; row++)
+                {
+                    var context = worksheet.Cells[row, 1].GetValue<string>();
+                    var original = worksheet.Cells[row, 2].GetValue<string>();
+                    var translated = worksheet.Cells[row, 3].GetValue<string>();
+
+                    if (string.IsNullOrEmpty(context) || !dictionary.TryGetValue(context, out Subtitle subtitle))
+                    {
+                        continue;
+                    }
+
+                    // Check if original matches (optional safety check)
+                    // If the Excel Original is empty, maybe we skip checking?
+                    // Assuming user knows what they are doing.
+                    
+                    if (!string.IsNullOrEmpty(translated))
+                    {
+                         subtitle.Translation = translated;
                     }
                 }
             }

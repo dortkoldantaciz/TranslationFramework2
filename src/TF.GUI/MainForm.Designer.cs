@@ -62,9 +62,14 @@ namespace TF.GUI
             this.mniBulkTexts = new System.Windows.Forms.ToolStripMenuItem();
             this.mniBulkTextsExport = new System.Windows.Forms.ToolStripMenuItem();
             this.mniBulkTextsImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniBulkTextsExportExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniBulkTextsImportExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.mniBulkImages = new System.Windows.Forms.ToolStripMenuItem();
             this.mniBulkImagesExport = new System.Windows.Forms.ToolStripMenuItem();
             this.mniBulkImagesImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniBulkAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniBulkAllExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniBulkAllImport = new System.Windows.Forms.ToolStripMenuItem();
             this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.tlsMain.SuspendLayout();
             this.mnuMain.SuspendLayout();
@@ -272,6 +277,7 @@ namespace TF.GUI
             // mniBulk
             // 
             this.mniBulk.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniBulkAll,
             this.mniBulkTexts,
             this.mniBulkImages});
             this.mniBulk.Name = "mniBulk";
@@ -281,7 +287,9 @@ namespace TF.GUI
             // 
             this.mniBulkTexts.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniBulkTextsExport,
-            this.mniBulkTextsImport});
+            this.mniBulkTextsImport,
+            this.mniBulkTextsExportExcel,
+            this.mniBulkTextsImportExcel});
             this.mniBulkTexts.Name = "mniBulkTexts";
             resources.ApplyResources(this.mniBulkTexts, "mniBulkTexts");
             // 
@@ -296,6 +304,20 @@ namespace TF.GUI
             resources.ApplyResources(this.mniBulkTextsImport, "mniBulkTextsImport");
             this.mniBulkTextsImport.Name = "mniBulkTextsImport";
             this.mniBulkTextsImport.Click += new System.EventHandler(this.mniBulkTextsImport_Click);
+            // 
+            // mniBulkTextsExportExcel
+            // 
+            this.mniBulkTextsExportExcel.Name = "mniBulkTextsExportExcel";
+            this.mniBulkTextsExportExcel.Size = new System.Drawing.Size(180, 22);
+            this.mniBulkTextsExportExcel.Text = "Export to Excel";
+            this.mniBulkTextsExportExcel.Click += new System.EventHandler(this.mniBulkTextsExportExcel_Click);
+            // 
+            // mniBulkTextsImportExcel
+            // 
+            this.mniBulkTextsImportExcel.Name = "mniBulkTextsImportExcel";
+            this.mniBulkTextsImportExcel.Size = new System.Drawing.Size(180, 22);
+            this.mniBulkTextsImportExcel.Text = "Import from Excel";
+            this.mniBulkTextsImportExcel.Click += new System.EventHandler(this.mniBulkTextsImportExcel_Click);
             // 
             // mniBulkImages
             // 
@@ -317,6 +339,29 @@ namespace TF.GUI
             this.mniBulkImagesImport.Name = "mniBulkImagesImport";
             this.mniBulkImagesImport.Click += new System.EventHandler(this.mniBulkImagesImport_Click);
             // 
+            // mniBulkAll
+            // 
+            this.mniBulkAll.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniBulkAllExport,
+            this.mniBulkAllImport});
+            this.mniBulkAll.Name = "mniBulkAll";
+            this.mniBulkAll.Size = new System.Drawing.Size(112, 22);
+            this.mniBulkAll.Text = "All";
+            // 
+            // mniBulkAllExport
+            // 
+            this.mniBulkAllExport.Name = "mniBulkAllExport";
+            this.mniBulkAllExport.Size = new System.Drawing.Size(180, 22);
+            this.mniBulkAllExport.Text = "Export";
+            this.mniBulkAllExport.Click += new System.EventHandler(this.mniBulkAllExport_Click);
+            // 
+            // mniBulkAllImport
+            // 
+            this.mniBulkAllImport.Name = "mniBulkAllImport";
+            this.mniBulkAllImport.Size = new System.Drawing.Size(180, 22);
+            this.mniBulkAllImport.Text = "Import";
+            this.mniBulkAllImport.Click += new System.EventHandler(this.mniBulkAllImport_Click);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -336,6 +381,25 @@ namespace TF.GUI
             this.tlsMain.PerformLayout();
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
+            this.mniFile.Text = "File";
+            this.mniFileNew.Text = "New Translation";
+            this.mniFileOpen.Text = "Load Translation";
+            this.mniFileSave.Text = "Save Changes";
+            this.mniFileExport.Text = "Export Game Files";
+            this.mniFileExit.Text = "Exit";
+            this.mniEdit.Text = "Edit";
+            this.mniEditSearch.Text = "Search";
+            this.mniEditSearchInFiles.Text = "Search in Files";
+            this.mniBulk.Text = "Bulk";
+            this.mniBulkTexts.Text = "Texts";
+            this.mniBulkTextsExport.Text = "Export to Po";
+            this.mniBulkTextsImport.Text = "Import from Po";
+            this.mniBulkImages.Text = "Images";
+            this.mniBulkImagesExport.Text = "Export Images";
+            this.mniBulkImagesImport.Text = "Import Images";
+            this.mniHelp.Text = "Help";
+            this.mniHelpAbout.Text = "About";
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,6 +442,11 @@ namespace TF.GUI
         private System.Windows.Forms.ToolStripMenuItem mniBulkImages;
         private System.Windows.Forms.ToolStripMenuItem mniBulkImagesExport;
         private System.Windows.Forms.ToolStripMenuItem mniBulkImagesImport;
+        private System.Windows.Forms.ToolStripMenuItem mniBulkTextsExportExcel;
+        private System.Windows.Forms.ToolStripMenuItem mniBulkTextsImportExcel;
+        private System.Windows.Forms.ToolStripMenuItem mniBulkAll;
+        private System.Windows.Forms.ToolStripMenuItem mniBulkAllExport;
+        private System.Windows.Forms.ToolStripMenuItem mniBulkAllImport;
     }
 }
 

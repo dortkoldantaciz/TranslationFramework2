@@ -36,8 +36,8 @@ namespace TFGame.Yakuza0DC.Files.Exe
             */
             new ExePatch
             {
-                Name = "Usar codificación ISO-8895-1",
-                Description = "Cambia la codificación de los textos a ISO-8895-1 (NO SE REPRESENTARÁN CARACTERES UTF-8)",
+                Name = "Use ISO-8859-1 encoding",
+                Description = "Changes text encoding to ISO-8859-1 (UTF-8 CHARACTERS WILL NOT BE DISPLAYED)",
                 Enabled = false,
                 Patches = new List<Tuple<long, byte[]>>
                 {
@@ -50,8 +50,8 @@ namespace TFGame.Yakuza0DC.Files.Exe
             // Buscar el primer "CoInitialize". La cadena está justo antes
             new ExePatch
             {
-                Name = "Cambiar posición de ¥",
-                Description = "Cambia la posición del símbolo ¥ a la derecha de la cifra (de ¥1000 a 1000¥)",
+                Name = "Change ¥ position",
+                Description = "Changes the position of the ¥ symbol to the right of the number (from ¥1000 to 1000¥)",
                 Enabled = false,
                 Patches = new List<Tuple<long, byte[]>>
                 {

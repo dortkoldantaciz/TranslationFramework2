@@ -52,7 +52,7 @@ namespace TFGame.TrailsSky.Files.Exe
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "hd2_hankaku.dds";
-            this.openFileDialog1.Filter = "Fuente Yakuza (*.dds)|*.dds|Todos los archivos (*.*)|*.*";
+            this.openFileDialog1.Filter = "Yakuza Font (*.dds)|*.dds|All files (*.*)|*.*";
             // 
             // splitContainer1
             // 
@@ -98,7 +98,7 @@ namespace TFGame.TrailsSky.Files.Exe
             this.btnAuto.Name = "btnAuto";
             this.btnAuto.Size = new System.Drawing.Size(97, 23);
             this.btnAuto.TabIndex = 3;
-            this.btnAuto.Text = "Automático";
+            this.btnAuto.Text = "Automatic";
             this.btnAuto.UseVisualStyleBackColor = true;
             this.btnAuto.Click += new System.EventHandler(this.btnAuto_Click);
             // 
@@ -111,7 +111,7 @@ namespace TFGame.TrailsSky.Files.Exe
             this.Controls.Add(this.dockPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FontTableView";
-            this.Text = "Fuente";
+            this.Text = "Font";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

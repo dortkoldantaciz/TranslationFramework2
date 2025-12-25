@@ -147,6 +147,12 @@
             this.Name = "NewProjectSettings";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.label1.Text = "Game Installation Folder:";
+            this.label2.Text = "Translation Work Folder:";
+            this.btnCancel.Text = "Cancel";
+            this.btnOK.Text = "OK";
+            this.Text = "New Translation Project";
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

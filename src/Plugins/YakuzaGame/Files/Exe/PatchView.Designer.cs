@@ -49,7 +49,7 @@ namespace YakuzaGame.Files.Exe
             this.Controls.Add(this.dockPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PatchView";
-            this.Text = "Parches";
+            this.Text = "Patches";
             this.ResumeLayout(false);
 
         }

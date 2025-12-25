@@ -14,7 +14,7 @@ namespace TFGame.TrailsSky.Files.FONT
         private byte[] _currentFont;
         private int _charHeight;
 
-        protected override string Filter => "Ficheros de fuente (FONT*._DA)|FONT*._DA";
+        protected override string Filter => "Font files (FONT*._DA)|FONT*._DA";
 
         public File(string gameName, string path, string changesFolder) : base(gameName, path, changesFolder)
         {
@@ -23,7 +23,7 @@ namespace TFGame.TrailsSky.Files.FONT
 
             if (!match.Success)
             {
-                throw new FormatException("El nombre del fichero debe incluir el tamaño de la fuente");
+                throw new FormatException("File name must include font size");
             }
 
             _charHeight = int.Parse(match.Groups["height"].Value);

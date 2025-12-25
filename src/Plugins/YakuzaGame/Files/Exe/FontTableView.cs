@@ -166,7 +166,7 @@ namespace YakuzaGame.Files.Exe
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("No se ha podido cargar la fuente", "ERROR", MessageBoxButtons.OK,
+                    MessageBox.Show("Could not load the font", "ERROR", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
                 
@@ -501,8 +501,8 @@ namespace YakuzaGame.Files.Exe
             const int pixelsSpace = 2;
             if (_newFontImage != null)
             {
-                var result = MessageBox.Show("Esta opción eliminará los ajustes actuales. ¿Quieres continuar?",
-                    "Ajuste automático", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show("This option will delete current adjustments. Do you want to continue?",
+                    "Auto Adjust", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.No)
                 {

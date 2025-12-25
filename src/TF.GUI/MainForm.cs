@@ -26,7 +26,7 @@ namespace TF.GUI
         {
             if (_pluginManager.GetAllGames().Count == 0)
             {
-                MessageBox.Show("No se ha podido encontrar ningún plugin válido.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Could not find any valid plugin.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }
         }

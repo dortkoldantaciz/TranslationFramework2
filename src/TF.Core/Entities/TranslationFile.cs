@@ -125,6 +125,16 @@ namespace TF.Core.Entities
 
         }
 
+        public virtual void ExportExcel(string path)
+        {
+
+        }
+
+        public virtual void ImportExcel(string path, bool save = true, bool parallel = true)
+        {
+
+        }
+
         public virtual void ExportImage(string path)
         {
             

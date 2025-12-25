@@ -232,11 +232,11 @@ namespace YakuzaGame.Files.Table
 
             using (var excel = new ExcelPackage())
             {
-                var sheet = excel.Workbook.Worksheets.Add("Hoja 1");
+                var sheet = excel.Workbook.Worksheets.Add("Sheet 1");
 
                 var header = new List<string[]>
                 {
-                    new[] {"COLUMNA", "ORDEN", "ORIGINAL", "TRADUCCIÓN"}
+                    new[] {"COLUMN", "ORDER", "ORIGINAL", "TRANSLATION"}
                 };
 
                 sheet.Cells["A1:D1"].LoadFromArrays(header);
@@ -331,7 +331,7 @@ namespace YakuzaGame.Files.Table
             }
             catch (Exception e)
             {
-                MessageBox.Show($"No se ha podido abrir el fichero.\r\n{e.GetType()}: {e.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Could not open the file.\r\n{e.GetType()}: {e.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -102,6 +102,12 @@ namespace TF.GUI.Forms
             this.Name = "SearchInFilesForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.label1.Text = "Search for:";
+            this.label2.Text = "Depending on the number of files in the project, this search may take several minutes.";
+            this.btnCancel.Text = "Cancel";
+            this.btnOK.Text = "OK";
+            this.Text = "Search in files";
+
             this.ResumeLayout(false);
             this.PerformLayout();
 

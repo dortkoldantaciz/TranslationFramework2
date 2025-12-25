@@ -11,6 +11,7 @@ using TF.IO;
 using WeifenLuo.WinFormsUI.Docking;
 using Yarhl.IO;
 using Yarhl.Media.Text;
+using OfficeOpenXml;
 
 namespace TF.Core.Files
 {
@@ -210,6 +211,46 @@ namespace TF.Core.Files
             if (save)
             {
                 SaveChanges();
+            }
+        }
+
+        public override void ExportExcel(string path)
+        {
+            var directory = System.IO.Path.GetDirectoryName(path);
+            Directory.CreateDirectory(directory);
+
+            using (var excel = new ExcelPackage())
+            {
+                var sheet = excel.Workbook.Worksheets.Add("Sheet 1");
+                sheet.Cells["A1"].LoadFromArrays(new[] { new[] { "ORIGINAL", "TRANSLATION" } });
+
+                var text = GetText();
+                var original = text.Text;
+                var translation = text.Translation;
+
+                sheet.Cells[2, 1].Value = original;
+                sheet.Cells[2, 2].Value = translation;
+
+                var excelFile = new FileInfo(path);
+                excel.SaveAs(excelFile);
+            }
+        }
+
+        public override void ImportExcel(string inputFile)
+        {
+            using (var excel = new ExcelPackage(new FileInfo(inputFile)))
+            {
+                var sheet = excel.Workbook.Worksheets[1];
+
+                if (sheet.Dimension.Rows >= 2)
+                {
+                    // var original = sheet.Cells[2, 1].Text;
+                    var translation = sheet.Cells[2, 2].Text;
+
+                    _text = GetText();
+                    _text.Translation = translation;
+                    SaveChanges();
+                }
             }
         }
     }

@@ -54,7 +54,7 @@ namespace TF.Core.Views
             this.btnImportFile.Name = "btnImportFile";
             this.btnImportFile.Size = new System.Drawing.Size(100, 28);
             this.btnImportFile.TabIndex = 5;
-            this.btnImportFile.Text = "Importar";
+            this.btnImportFile.Text = "Import";
             this.btnImportFile.UseVisualStyleBackColor = true;
             this.btnImportFile.Click += new System.EventHandler(this.btnImportFile_Click);
             // 
@@ -66,7 +66,7 @@ namespace TF.Core.Views
             this.btnExportFile.Name = "btnExportFile";
             this.btnExportFile.Size = new System.Drawing.Size(100, 28);
             this.btnExportFile.TabIndex = 6;
-            this.btnExportFile.Text = "Exportar";
+            this.btnExportFile.Text = "Export";
             this.btnExportFile.UseVisualStyleBackColor = true;
             this.btnExportFile.Click += new System.EventHandler(this.btnExportFile_Click);
             // 
